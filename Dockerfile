@@ -1,22 +1,17 @@
-FROM python:3.9-slim
+# Use a Python base image
+FROM python:3.9-slim-buster
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    ffmpeg \
-    libsndfile1 \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
-
+# Set the working directory in the container
 WORKDIR /app
-COPY . /app
 
-# Install Python dependencies
-RUN pip install --upgrade pip
+# Copy the requirements file into the container
+COPY requirements.txt .
+
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 7860
+# Copy the application code into the container
+COPY . /app
 
+# Set the entry point for the container
 CMD ["python", "app.py"]
-
-HEALTHCHECK --interval=30s --timeout=10s \
-  CMD curl -f http://localhost:7860/health || exit 1
