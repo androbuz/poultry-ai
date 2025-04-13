@@ -27,4 +27,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: yourdockerhubusername/poultry-ai:latest
+        tags: androbuzz/poultry-ai:latest
