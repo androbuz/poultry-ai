@@ -111,5 +111,5 @@ iface = gr.Interface(
 )
 
 # Modified launch configuration
-iface.launch(server_port=7860, server_name="0.0.0.0")
+iface.launch(server_port=7860, server_name="0.0.0.0", share=True)
 #this technology is a step towards smart farming
