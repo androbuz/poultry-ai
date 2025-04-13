@@ -1,6 +1,8 @@
-gradio==4.10.0
 librosa
-joblib
+gradio
 numpy
-scipy
+scikit-learn
 soundfile
+joblib
+keras
+tensorflow
