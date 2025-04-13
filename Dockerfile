@@ -17,3 +17,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 7860
 
 CMD ["python", "app.py"]
+
+HEALTHCHECK --interval=30s --timeout=10s \
+  CMD curl -f http://localhost:7860/health || exit 1
